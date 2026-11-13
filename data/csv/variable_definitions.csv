@@ -1,0 +1,39 @@
+Variable,Definition
+Week_Start,Start date of the reporting week. Each record represents performance for the week beginning on this date.
+Month,Calendar month associated with the reporting period.
+Store_ID,Unique identifier for each retail store.
+Store_Name,Name of the retail store.
+Region,Geographic region in which the store operates.
+Channel,"Sales channel through which the product was sold (e.g., Store, Online, Convenience, Superstore)."
+Product_Group,"Broad product category to which the product belongs (e.g., Dairy, Beverages, Snacks)."
+Product_Group_Code,Unique code used to identify the product group.
+TPN,The Product Number (or equivalent product identifier) used to uniquely identify a SKU.
+Product_Name,Name of the individual product (SKU).
+Customer_Lifestage,"Customer life stage most associated with the product (e.g., Young Adults, Families, Seniors)."
+Lifestyle_Segment,"Customer lifestyle segment most associated with the product (e.g., Budget Conscious, Health Focused, Convenience Seekers)."
+Last_Year_Sales_Value,Total sales revenue generated during the equivalent period in the previous year (£).
+Current_Sales_Value,Total sales revenue generated during the current reporting period (£).
+Sales_Gap,Difference between current sales value and last year's sales value (£).
+Sales_%_Change,Percentage change in sales value compared with the same period last year.
+Last_Year_Units,Number of units sold during the equivalent period last year.
+Current_Units,Number of units sold during the current period.
+Units_%_Change,Percentage change in units sold compared with last year.
+Last_Year_Visits,Number of customer shopping visits recorded last year.
+Current_Visits,Number of customer shopping visits recorded during the current period.
+Visits_%_Change,Percentage change in customer visits compared with last year.
+Last_Year_Customers,Number of unique customers purchasing from the category last year.
+Current_Customers,Number of unique customers purchasing from the category during the current period.
+Customers_%_Change,Percentage change in unique customers compared with last year.
+Last_year_company_price_index,Last year average selling price per unit for the company (£). Calculated as Current Sales Value ÷ Current Units.
+Company_Price_Index,Current average selling price per unit for the company (£). Calculated as Current Sales Value ÷ Current Units.
+Avg_Price_%_Change,Percentage change in average selling price compared with last year.
+ACV_Weighted_Distribution_Latest,Percentage of total market sales represented by stores stocking the product. Indicates product availability weighted by store importance.
+ACV_Weighted_Distribution_%_Change,Percentage change in ACV weighted distribution compared with a previous period.
+Basket_Penetration_Latest,Percentage of shopping baskets containing the product or category.
+Category_Share_Spend_Latest,Percentage share of customer spending captured by the category relative to total category spending.
+Repeat_Rate_Latest,Percentage of customers who purchased the product or category more than once within the reporting period.
+Stores_Selling_Latest,Number of stores currently stocking and selling the product.
+Sales_Per_Store_Current,Average sales value generated per store selling the product. Calculated as Current Sales Value ÷ Stores Selling.
+Price_Effect_%_Change,Estimated percentage change in sales attributable to price changes.
+Product_Mix_%_Change,Estimated percentage change in sales attributable to changes in product assortment or mix.
+Main_Competitor_Price_Index,"Competitor's average selling price per unit (£), calculated as Competitor Sales Value ÷ Competitor Units. Used to assess pricing competitiveness."
