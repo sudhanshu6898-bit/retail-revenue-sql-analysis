@@ -1,0 +1,62 @@
+-- Output of sql/10_weakest_product_deep_dive.sql (PostgreSQL 16)
+
+      tpn      |     product_group     |             product_name             | revenue_yoy_pct 
+---------------+-----------------------+--------------------------------------+-----------------
+ TPN-F76CC-009 | EVERYDAY 2 LITRE TUBS | Meadow Vale Vanilla Ice Cream Tub 2L |          -36.31
+(1 row)
+
+        segment        | cy_revenue | revenue_yoy_pct | units_yoy_pct | customers_yoy_pct | avg_price_change_pct | premium_vs_competitor_pct | avg_distribution_pct | avg_repeat_rate_pct 
+-----------------------+------------+-----------------+---------------+-------------------+----------------------+---------------------------+----------------------+---------------------
+ ALL OTHER GROUPS      | 2326501.93 |            -5.8 |         -10.2 |              -3.6 |                  4.9 |                       0.7 |                 89.3 |                40.2
+ EVERYDAY 2 LITRE TUBS |  154022.19 |           -36.3 |         -40.7 |             -22.7 |                  7.5 |                      10.8 |                 89.2 |                39.1
+(2 rows)
+
+ month_label | cy_revenue | revenue_yoy_pct | units_yoy_pct | our_avg_price | competitor_price | premium_vs_competitor_pct 
+-------------+------------+-----------------+---------------+---------------+------------------+---------------------------
+ Jan-2026    |   23564.60 |           -36.9 |         -42.9 |          2.59 |             2.34 |                      10.8
+ Feb-2026    |   24146.21 |           -36.4 |         -39.0 |          2.75 |             2.49 |                      10.6
+ Mar-2026    |   25145.66 |           -36.9 |         -42.5 |          3.14 |             2.83 |                      11.0
+ Apr-2026    |   25537.88 |           -36.8 |         -41.4 |          2.38 |             2.15 |                      10.7
+ May-2026    |   27016.17 |           -36.0 |         -39.7 |          2.84 |             2.56 |                      11.1
+ Jun-2026    |   28611.67 |           -35.0 |         -39.0 |          2.80 |             2.53 |                      10.8
+(6 rows)
+
+  channel_name   | cy_revenue | revenue_gap | revenue_yoy_pct | units_yoy_pct 
+-----------------+------------+-------------+-----------------+---------------
+ Store           |   84653.80 |   -67077.32 |           -44.2 |         -49.0
+ Online Delivery |   34144.94 |   -10938.39 |           -24.3 |         -28.9
+ Click & Collect |   35223.45 |    -9776.55 |           -21.7 |         -25.2
+(3 rows)
+
+        store_name        | cy_revenue | revenue_gap | revenue_yoy_pct | premium_vs_competitor_pct | worst_rank 
+--------------------------+------------+-------------+-----------------+---------------------------+------------
+ Peterborough Retail Park |   13510.98 |   -17847.96 |           -56.9 |                      12.0 |          1
+ Colchester High Street   |   12152.21 |   -13927.56 |           -53.4 |                      11.8 |          2
+ Ipswich Town             |   14226.82 |   -11050.28 |           -43.7 |                      11.6 |          3
+ Lowestoft Local          |   11053.69 |    -7384.73 |           -40.1 |                      11.9 |          4
+ King's Lynn              |   12970.39 |    -7987.84 |           -38.1 |                      11.1 |          5
+ Great Yarmouth           |   12617.88 |    -6874.97 |           -35.3 |                      11.3 |          6
+ Ely Local                |   14479.38 |    -4807.89 |           -24.9 |                      10.3 |          7
+ Bury St Edmunds          |   17493.56 |    -5148.40 |           -22.7 |                      10.4 |          8
+ Cambridge Central        |   23184.21 |    -6633.66 |           -22.2 |                      10.1 |          9
+ Norwich Riverside        |   22333.07 |    -6128.97 |           -21.5 |                       9.6 |         10
+(10 rows)
+
+ premium_quartile | records | min_premium_pct | max_premium_pct | avg_units_change_pct 
+------------------+---------+-----------------+-----------------+----------------------
+                1 |      45 |             6.8 |             9.7 |                -17.7
+                2 |      45 |             9.7 |            10.9 |                -33.0
+                3 |      45 |            10.9 |            11.9 |                -37.8
+                4 |      45 |            11.9 |            13.8 |                -48.4
+(4 rows)
+
+ corr_units_vs_premium | units_pts_lost_per_1pt_premium | r_squared 
+-----------------------+--------------------------------+-----------
+                -0.745 |                          -7.92 |     0.555
+(1 row)
+
+ current_revenue | new_price_matched_to_competitor | scenario_units | scenario_revenue | scenario_uplift 
+-----------------+---------------------------------+----------------+------------------+-----------------
+       154022.19 |                            2.47 |          75706 |        186767.80 |        32745.61
+(1 row)
+
