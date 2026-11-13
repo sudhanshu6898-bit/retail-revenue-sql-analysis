@@ -1,0 +1,100 @@
+-- Output of sql/11_shopper_profile_analysis.sql (PostgreSQL 16)
+
+      product_group      | segment_type |     segment     | appeal_index | rnk 
+-------------------------+--------------+-----------------+--------------+-----
+ EVERYDAY 2 LITRE TUBS   | Lifestyle    | Kids Choice     |        130.0 |   1
+ EVERYDAY 2 LITRE TUBS   | Lifestage    | Young Families  |        124.0 |   2
+ EVERYDAY 2 LITRE TUBS   | Lifestyle    | Price Sensitive |        122.0 |   3
+ FROZEN READY MEALS      | Lifestyle    | Convenience     |        125.0 |   1
+ FROZEN READY MEALS      | Lifestage    | Pensioners      |        118.0 |   2
+ FROZEN READY MEALS      | Lifestage    | Young Adults    |        115.0 |   3
+ HEALTHY & FREE FROM     | Lifestage    | Older Adults    |        128.0 |   1
+ HEALTHY & FREE FROM     | Lifestyle    | Finer Foods     |        122.0 |   2
+ HEALTHY & FREE FROM     | Lifestage    | Pensioners      |        120.0 |   3
+ INSTANT SNACK MEALS     | Lifestage    | Young Adults    |        128.0 |   1
+ INSTANT SNACK MEALS     | Lifestyle    | Convenience     |        126.0 |   2
+ INSTANT SNACK MEALS     | Lifestyle    | Price Sensitive |        124.0 |   3
+ MAYONNAISE              | Lifestyle    | Kids Choice     |        120.0 |   1
+ MAYONNAISE              | Lifestage    | Young Families  |        118.0 |   2
+ MAYONNAISE              | Lifestyle    | Mainstream      |        116.0 |   3
+ ORIENTAL COOKING SAUCES | Lifestage    | Young Adults    |        122.0 |   1
+ ORIENTAL COOKING SAUCES | Lifestyle    | Finer Foods     |        118.0 |   2
+ ORIENTAL COOKING SAUCES | Lifestage    | Young Families  |        112.0 |   3
+ SALAD DRESSINGS         | Lifestyle    | Finer Foods     |        118.0 |   1
+ SALAD DRESSINGS         | Lifestage    | Older Adults    |        118.0 |   2
+ SALAD DRESSINGS         | Lifestage    | Young Adults    |        112.0 |   3
+ SEASONINGS              | Lifestage    | Older Adults    |        126.0 |   1
+ SEASONINGS              | Lifestyle    | Traditional     |        124.0 |   2
+ SEASONINGS              | Lifestyle    | Finer Foods     |        118.0 |   3
+ SPECIALITY OILS         | Lifestyle    | Finer Foods     |        132.0 |   1
+ SPECIALITY OILS         | Lifestage    | Older Adults    |        128.0 |   2
+ SPECIALITY OILS         | Lifestage    | Pensioners      |        114.0 |   3
+ TOMATO SAUCE            | Lifestyle    | Kids Choice     |        130.0 |   1
+ TOMATO SAUCE            | Lifestage    | Young Families  |        126.0 |   2
+ TOMATO SAUCE            | Lifestage    | Older Families  |        118.0 |   3
+(30 rows)
+
+ segment_type |     segment     | avg_appeal_declining_groups | avg_appeal_growing_groups | difference 
+--------------+-----------------+-----------------------------+---------------------------+------------
+ Lifestyle    | Kids Choice     |                       117.6 |                      80.8 |       36.8
+ Lifestyle    | Price Sensitive |                       110.2 |                      90.8 |       19.4
+ Lifestyle    | Mainstream      |                       108.4 |                      98.2 |       10.2
+ Lifestage    | Young Families  |                       113.8 |                     103.8 |       10.0
+ Lifestyle    | Convenience     |                       100.2 |                     100.4 |       -0.2
+ Lifestage    | Older Families  |                       106.0 |                     106.4 |       -0.4
+ Lifestage    | Young Adults    |                       103.0 |                     109.8 |       -6.8
+ Lifestyle    | Traditional     |                        93.0 |                     100.0 |       -7.0
+ Lifestage    | Older Adults    |                        94.8 |                     115.2 |      -20.4
+ Lifestage    | Pensioners      |                        86.4 |                     107.6 |      -21.2
+ Lifestyle    | Finer Foods     |                        88.0 |                     116.0 |      -28.0
+(11 rows)
+
+     segment     | corr_appeal_vs_growth 
+-----------------+-----------------------
+ Kids Choice     |                -0.948
+ Price Sensitive |                -0.865
+ Young Families  |                -0.585
+ Mainstream      |                -0.524
+ Older Families  |                -0.159
+ Convenience     |                -0.024
+ Young Adults    |                 0.299
+ Traditional     |                 0.424
+ Pensioners      |                 0.724
+ Older Adults    |                 0.743
+ Finer Foods     |                 0.825
+(11 rows)
+
+ segment_type |     segment     | appeal_index |  targeting  
+--------------+-----------------+--------------+-------------
+ Lifestyle    | Kids Choice     |        130.0 | Core target
+ Lifestage    | Young Families  |        124.0 | Core target
+ Lifestyle    | Price Sensitive |        122.0 | Core target
+ Lifestage    | Older Families  |        118.0 | Core target
+ Lifestyle    | Mainstream      |        114.0 | Core target
+ Lifestage    | Young Adults    |         90.0 | Low appeal
+ Lifestage    | Older Adults    |         88.0 | Low appeal
+ Lifestyle    | Traditional     |         86.0 | Low appeal
+ Lifestyle    | Convenience     |         84.0 | Low appeal
+ Lifestage    | Pensioners      |         80.0 | Low appeal
+ Lifestyle    | Finer Foods     |         76.0 | Low appeal
+(11 rows)
+
+ customer_lifestage | cy_revenue | revenue_yoy_pct 
+--------------------+------------+-----------------
+ Older Families     |  458399.07 |           -16.9
+ Young Families     |  652046.89 |           -16.1
+ Young Adults       |  459098.93 |            -9.8
+ Older Adults       |  647750.50 |             2.7
+ Pensioners         |  263228.73 |             8.0
+(5 rows)
+
+ lifestyle_segment | cy_revenue | revenue_yoy_pct 
+-------------------+------------+-----------------
+ Price Sensitive   |  159177.05 |           -28.2
+ Kids Choice       |  337021.58 |           -26.4
+ Mainstream        |  780949.50 |            -8.6
+ Convenience       |  312023.25 |            -2.3
+ Finer Foods       |  456847.62 |             3.2
+ Traditional       |  434505.12 |             4.4
+(6 rows)
+

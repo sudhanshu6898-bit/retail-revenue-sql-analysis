@@ -1,0 +1,85 @@
+-- Output of sql/12_customer_complaints_analysis.sql (PostgreSQL 16)
+
+ complaints | first_date | last_date  | avg_severity | repeat_complaint_pct | high_severity_pct 
+------------+------------+------------+--------------+----------------------+-------------------
+        600 | 2026-01-01 | 2026-06-30 |         3.18 |                 50.0 |              39.0
+(1 row)
+
+        complaint_theme         | complaints | pct_of_total | avg_severity | repeat_pct | rank_by_volume 
+--------------------------------+------------+--------------+--------------+------------+----------------
+ Unclear Product Usage Guidance |        206 |         34.3 |         3.17 |       50.5 |              1
+ Poor Digital Communication     |        204 |         34.0 |         3.26 |       49.0 |              2
+ Customer Support Delays        |        190 |         31.7 |         3.11 |       50.5 |              3
+(3 rows)
+
+  month   | complaints | avg_severity 
+----------+------------+--------------
+ Jan-2026 |        110 |         3.11
+ Feb-2026 |        100 |         3.31
+ Mar-2026 |         99 |         3.08
+ Apr-2026 |        102 |         3.16
+ May-2026 |         89 |         3.10
+ Jun-2026 |        100 |         3.32
+(6 rows)
+
+      product_group      | revenue_yoy_pct | complaints | avg_severity | very_negative 
+-------------------------+-----------------+------------+--------------+---------------
+ EVERYDAY 2 LITRE TUBS   |           -36.3 |         53 |         3.30 |            10
+ TOMATO SAUCE            |           -28.5 |         63 |         3.03 |            11
+ INSTANT SNACK MEALS     |           -24.6 |         59 |         3.36 |             9
+ MAYONNAISE              |           -13.9 |         55 |         3.16 |             9
+ SALAD DRESSINGS         |            -0.4 |         68 |         3.03 |             7
+ ORIENTAL COOKING SAUCES |             1.3 |         63 |         3.25 |             7
+ HEALTHY & FREE FROM     |             1.9 |         54 |         3.17 |             4
+ FROZEN READY MEALS      |             7.3 |         59 |         3.10 |             7
+ SPECIALITY OILS         |             8.3 |         62 |         3.27 |            14
+ SEASONINGS              |            13.2 |         64 |         3.16 |             7
+(10 rows)
+
+ complaint_channel | very_negative | negative | frustrated | other | total 
+-------------------+---------------+----------+------------+-------+-------
+ Email             |            15 |       50 |         12 |    56 |   133
+ Social media      |            20 |       45 |         13 |    44 |   122
+ Phone support     |            19 |       38 |         17 |    42 |   116
+ Mobile app        |            17 |       40 |         16 |    43 |   116
+ Web chat          |            14 |       36 |         12 |    51 |   113
+(5 rows)
+
+                  customer_expectation                  | mentions 
+--------------------------------------------------------+----------
+ Customer expected short engaging tutorial videos.      |       57
+ Customer expected faster digital self-service options. |       44
+ Customer expected modern AI-assisted customer service. |       43
+ Customer expected more engaging explainer videos.      |       43
+ Customer wanted content tailored to their needs.       |       43
+ Customer expected clearer automated recommendations.   |       40
+ Customer expected clearer digital recipe guidance.     |       40
+ Customer wanted step-by-step guided troubleshooting.   |       39
+ Customer wanted easier-to-understand social content.   |       39
+ Customer expected clearer personalised communication.  |       38
+(10 rows)
+
+        complaint_theme         | customer_segment | complaints | avg_severity 
+--------------------------------+------------------+------------+--------------
+ Unclear Product Usage Guidance | Young Families   |          8 |         3.25
+ Poor Digital Communication     | Young Families   |          6 |         3.50
+ Unclear Product Usage Guidance | Young Adults     |          6 |         3.17
+ Unclear Product Usage Guidance | Health Conscious |          6 |         3.50
+ Customer Support Delays        | Young Families   |          5 |         2.40
+ Customer Support Delays        | Health Conscious |          4 |         3.50
+ Customer Support Delays        | Older Adults     |          3 |         4.00
+ Poor Digital Communication     | Young Adults     |          3 |         4.33
+ Unclear Product Usage Guidance | Older Adults     |          3 |         2.67
+ Unclear Product Usage Guidance | Price Sensitive  |          3 |         3.33
+(10 rows)
+
+      linked_business_problem       | complaints | pct  
+------------------------------------+------------+------
+ Poor customer retention            |        108 | 18.0
+ Declining customer satisfaction    |        107 | 17.8
+ Low trust in digital support       |        101 | 16.8
+ Weak digital engagement            |        101 | 16.8
+ Ineffective customer communication |         94 | 15.7
+ Rising complaint escalation rates  |         89 | 14.8
+(6 rows)
+
