@@ -1,0 +1,43 @@
+-- Output of sql/08_channel_ranking.sql (PostgreSQL 16)
+
+  channel_name   | is_online | ly_revenue | cy_revenue | revenue_gap | yoy_pct | share_cy_pct | share_ly_pct | growth_rank 
+-----------------+-----------+------------+------------+-------------+---------+--------------+--------------+-------------
+ Click & Collect | t         |  462438.46 |  495576.10 |    33137.64 |    7.17 |        19.98 |        17.05 |           1
+ Online Delivery | t         |  477556.29 |  501128.30 |    23572.01 |    4.94 |        20.20 |        17.61 |           2
+ Store           | f         | 1772130.60 | 1483819.72 |  -288310.88 |  -16.27 |        59.82 |        65.34 |           3
+(3 rows)
+
+ channel_type | cy_revenue | revenue_gap | yoy_pct 
+--------------+------------+-------------+---------
+ In-store     | 1483819.72 |  -288310.88 |  -16.27
+ Online       |  996704.40 |    56709.65 |    6.03
+(2 rows)
+
+      product_group      | store_yoy | click_collect_yoy | online_delivery_yoy 
+-------------------------+-----------+-------------------+---------------------
+ EVERYDAY 2 LITRE TUBS   |     -44.2 |             -21.7 |               -24.3
+ TOMATO SAUCE            |     -34.6 |             -12.8 |               -15.4
+ INSTANT SNACK MEALS     |     -31.1 |              -9.2 |               -10.6
+ MAYONNAISE              |     -19.6 |               2.2 |                 0.0
+ SALAD DRESSINGS         |      -9.3 |              13.6 |                10.6
+ HEALTHY & FREE FROM     |      -8.1 |              13.7 |                12.1
+ ORIENTAL COOKING SAUCES |      -5.7 |              16.2 |                14.1
+ SPECIALITY OILS         |      -0.6 |              20.7 |                19.1
+ FROZEN READY MEALS      |       1.2 |              23.2 |                21.3
+ SEASONINGS              |       4.9 |              26.5 |                24.4
+(10 rows)
+
+ label |        store_name        |  channel_name   | cy_revenue | yoy_pct 
+-------+--------------------------+-----------------+------------+---------
+ Best  | Norwich Riverside        | Click & Collect |   59425.11 |   24.63
+ Best  | Cambridge Central        | Click & Collect |   59730.96 |   22.29
+ Best  | Norwich Riverside        | Online Delivery |   61934.83 |   21.89
+ Best  | Cambridge Central        | Online Delivery |   62668.30 |   19.94
+ Best  | Bury St Edmunds          | Click & Collect |   53541.98 |   18.93
+ Worst | Peterborough Retail Park | Store           |  172151.82 |  -33.30
+ Worst | Colchester High Street   | Store           |  138536.89 |  -29.98
+ Worst | Ipswich Town             | Store           |  144299.13 |  -24.29
+ Worst | Lowestoft Local          | Store           |   84570.21 |  -23.64
+ Worst | King's Lynn              | Store           |  110044.04 |  -21.36
+(10 rows)
+

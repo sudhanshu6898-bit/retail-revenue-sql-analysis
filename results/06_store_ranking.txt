@@ -1,0 +1,54 @@
+-- Output of sql/06_store_ranking.sql (PostgreSQL 16)
+
+        store_name        | cy_revenue | ly_revenue | revenue_gap | yoy_pct | share_of_revenue_pct | rank_by_revenue | rank_by_growth | revenue_per_customer 
+--------------------------+------------+------------+-------------+---------+----------------------+-----------------+----------------+----------------------
+ Norwich Riverside        |  352999.27 |  327833.34 |    25165.93 |    7.68 |                14.23 |               2 |              1 |                 5.96
+ Cambridge Central        |  362425.33 |  344240.60 |    18184.73 |    5.28 |                14.61 |               1 |              2 |                 6.34
+ Bury St Edmunds          |  257070.59 |  247228.58 |     9842.01 |    3.98 |                10.36 |               4 |              3 |                 5.57
+ Ely Local                |  213134.67 |  210403.96 |     2730.71 |    1.30 |                 8.59 |               7 |              4 |                 5.70
+ Great Yarmouth           |  195620.03 |  215135.87 |   -19515.84 |   -9.07 |                 7.89 |               9 |              5 |                 6.15
+ King's Lynn              |  200973.49 |  229996.39 |   -29022.90 |  -12.62 |                 8.10 |               8 |              6 |                 6.13
+ Lowestoft Local          |  173745.17 |  200747.35 |   -27002.18 |  -13.45 |                 7.00 |              10 |              7 |                 5.66
+ Ipswich Town             |  235325.02 |  283355.19 |   -48030.17 |  -16.95 |                 9.49 |               5 |              8 |                 5.50
+ Colchester High Street   |  224458.74 |  290922.58 |   -66463.84 |  -22.85 |                 9.05 |               6 |              9 |                 5.38
+ Peterborough Retail Park |  264771.81 |  362261.49 |   -97489.68 |  -26.91 |                10.67 |               3 |             10 |                 5.09
+(10 rows)
+
+ position |        store_name        | cy_revenue | revenue_gap | yoy_pct 
+----------+--------------------------+------------+-------------+---------
+ Top 1    | Norwich Riverside        |  352999.27 |    25165.93 |    7.68
+ Top 2    | Cambridge Central        |  362425.33 |    18184.73 |    5.28
+ Top 3    | Bury St Edmunds          |  257070.59 |     9842.01 |    3.98
+ Bottom 3 | Ipswich Town             |  235325.02 |   -48030.17 |  -16.95
+ Bottom 2 | Colchester High Street   |  224458.74 |   -66463.84 |  -22.85
+ Bottom 1 | Peterborough Retail Park |  264771.81 |   -97489.68 |  -26.91
+(6 rows)
+
+        store_name        | biggest_drag_product  | revenue_gap 
+--------------------------+-----------------------+-------------
+ Peterborough Retail Park | TOMATO SAUCE          |   -21887.90
+ Colchester High Street   | TOMATO SAUCE          |   -15414.59
+ Ipswich Town             | TOMATO SAUCE          |   -12215.62
+ King's Lynn              | TOMATO SAUCE          |    -8755.91
+ Lowestoft Local          | TOMATO SAUCE          |    -7572.96
+ Great Yarmouth           | TOMATO SAUCE          |    -6950.88
+ Cambridge Central        | EVERYDAY 2 LITRE TUBS |    -6633.66
+ Norwich Riverside        | EVERYDAY 2 LITRE TUBS |    -6128.97
+ Bury St Edmunds          | EVERYDAY 2 LITRE TUBS |    -5148.40
+ Ely Local                | EVERYDAY 2 LITRE TUBS |    -4807.89
+(10 rows)
+
+        store_name        | jan_yoy | feb_yoy | mar_yoy | apr_yoy | may_yoy | jun_yoy 
+--------------------------+---------+---------+---------+---------+---------+---------
+ Bury St Edmunds          |     2.7 |     3.5 |     2.8 |     4.3 |     4.2 |     5.9
+ Cambridge Central        |     4.1 |     4.3 |     4.6 |     5.5 |     5.6 |     7.1
+ Colchester High Street   |   -23.7 |   -23.5 |   -22.7 |   -22.9 |   -22.8 |   -21.8
+ Ely Local                |     0.8 |     0.3 |    -0.1 |     1.3 |     2.2 |     3.0
+ Great Yarmouth           |   -10.3 |   -10.3 |    -8.3 |    -9.1 |    -8.6 |    -8.1
+ Ipswich Town             |   -18.0 |   -17.5 |   -17.7 |   -17.4 |   -15.9 |   -15.5
+ King's Lynn              |   -12.8 |   -13.0 |   -13.0 |   -13.5 |   -12.0 |   -11.6
+ Lowestoft Local          |   -14.2 |   -14.0 |   -14.2 |   -13.8 |   -12.1 |   -12.7
+ Norwich Riverside        |     7.0 |     6.8 |     7.1 |     7.6 |     8.2 |     8.9
+ Peterborough Retail Park |   -27.4 |   -26.9 |   -27.2 |   -27.1 |   -26.9 |   -26.2
+(10 rows)
+

@@ -1,0 +1,99 @@
+-- Output of sql/07_product_group_ranking.sql (PostgreSQL 16)
+
+      product_group      |                  product_name                  | ly_revenue | cy_revenue | revenue_gap | revenue_yoy_pct | units_yoy_pct | share_of_revenue_pct | growth_rank |   performance_band   
+-------------------------+------------------------------------------------+------------+------------+-------------+-----------------+---------------+----------------------+-------------+----------------------
+ SEASONINGS              | Chef's Table Garlic & Herb Seasoning 55g       |  223431.40 |  252879.61 |    29448.21 |           13.18 |          9.16 |                10.19 |           1 | Strong growth
+ SPECIALITY OILS         | Golden Acre Extra Virgin Olive Oil 500ml       |  207990.08 |  225223.22 |    17233.14 |            8.29 |          4.95 |                 9.08 |           2 | Strong growth
+ FROZEN READY MEALS      | Oakbridge Chicken Tikka Masala Ready Meal 400g |  346848.28 |  372179.67 |    25331.39 |            7.30 |          2.87 |                15.00 |           3 | Strong growth
+ HEALTHY & FREE FROM     | FreeGood Gluten Free Seeded Loaf 400g          |  187825.89 |  191454.46 |     3628.57 |            1.93 |         -2.71 |                 7.72 |           4 | Flat / slight growth
+ ORIENTAL COOKING SAUCES | East Kitchen Sweet Chilli Cooking Sauce 500g   |  270221.73 |  273827.02 |     3605.29 |            1.33 |         -2.76 |                11.04 |           5 | Flat / slight growth
+ SALAD DRESSINGS         | Green Valley Caesar Salad Dressing 250ml       |  215812.53 |  215042.83 |     -769.70 |           -0.36 |         -5.41 |                 8.67 |           6 | Moderate decline
+ MAYONNAISE              | Crownfield Real Mayonnaise 500ml               |  380937.73 |  328123.16 |   -52814.57 |          -13.86 |        -17.35 |                13.23 |           7 | Severe decline
+ INSTANT SNACK MEALS     | QuickBowl Spicy Noodles 90g                    |  312610.90 |  235577.37 |   -77033.53 |          -24.64 |        -28.82 |                 9.50 |           8 | Severe decline
+ TOMATO SAUCE            | Harvest Pantry Tomato Ketchup 700g             |  324632.36 |  232194.59 |   -92437.77 |          -28.47 |        -32.42 |                 9.36 |           9 | Severe decline
+ EVERYDAY 2 LITRE TUBS   | Meadow Vale Vanilla Ice Cream Tub 2L           |  241814.45 |  154022.19 |   -87792.26 |          -36.31 |        -40.74 |                 6.21 |          10 | Severe decline
+(10 rows)
+
+      product_group      |    gap    | pct_of_total_losses | cumulative_gap | pct_of_net_decline 
+-------------------------+-----------+---------------------+----------------+--------------------
+ TOMATO SAUCE            | -92437.77 |                29.7 |      -92437.77 |               39.9
+ EVERYDAY 2 LITRE TUBS   | -87792.26 |                28.2 |     -180230.03 |               37.9
+ INSTANT SNACK MEALS     | -77033.53 |                24.8 |     -257263.56 |               33.3
+ MAYONNAISE              | -52814.57 |                17.0 |     -310078.13 |               22.8
+ SALAD DRESSINGS         |   -769.70 |                 0.2 |     -310847.83 |                0.3
+ ORIENTAL COOKING SAUCES |   3605.29 |                -1.2 |     -307242.54 |               -1.6
+ HEALTHY & FREE FROM     |   3628.57 |                -1.2 |     -303613.97 |               -1.6
+ SPECIALITY OILS         |  17233.14 |                -5.5 |     -286380.83 |               -7.4
+ FROZEN READY MEALS      |  25331.39 |                -8.1 |     -261049.44 |              -10.9
+ SEASONINGS              |  29448.21 |                -9.5 |     -231601.23 |              -12.7
+(10 rows)
+
+ losses_from_declining_groups | gains_from_growing_groups | net_revenue_change 
+------------------------------+---------------------------+--------------------
+                   -310847.83 |                  79246.60 |         -231601.23
+(1 row)
+
+      product_group      | month_label | cy_revenue | yoy_pct 
+-------------------------+-------------+------------+---------
+ EVERYDAY 2 LITRE TUBS   | Jan-2026    |   23564.60 |   -36.9
+ EVERYDAY 2 LITRE TUBS   | Feb-2026    |   24146.21 |   -36.4
+ EVERYDAY 2 LITRE TUBS   | Mar-2026    |   25145.66 |   -36.9
+ EVERYDAY 2 LITRE TUBS   | Apr-2026    |   25537.88 |   -36.8
+ EVERYDAY 2 LITRE TUBS   | May-2026    |   27016.17 |   -36.0
+ EVERYDAY 2 LITRE TUBS   | Jun-2026    |   28611.67 |   -35.0
+ FROZEN READY MEALS      | Jan-2026    |   54385.78 |     5.7
+ FROZEN READY MEALS      | Feb-2026    |   57011.99 |     6.9
+ FROZEN READY MEALS      | Mar-2026    |   59795.02 |     5.9
+ FROZEN READY MEALS      | Apr-2026    |   63713.20 |     8.4
+ FROZEN READY MEALS      | May-2026    |   65572.19 |     7.4
+ FROZEN READY MEALS      | Jun-2026    |   71701.49 |     9.0
+ HEALTHY & FREE FROM     | Jan-2026    |   29601.66 |     1.3
+ HEALTHY & FREE FROM     | Feb-2026    |   30045.91 |     1.4
+ HEALTHY & FREE FROM     | Mar-2026    |   31255.81 |     1.6
+ HEALTHY & FREE FROM     | Apr-2026    |   32025.70 |     1.7
+ HEALTHY & FREE FROM     | May-2026    |   33538.81 |     2.0
+ HEALTHY & FREE FROM     | Jun-2026    |   34986.57 |     3.4
+ INSTANT SNACK MEALS     | Jan-2026    |   35407.77 |   -24.9
+ INSTANT SNACK MEALS     | Feb-2026    |   35644.96 |   -26.1
+ INSTANT SNACK MEALS     | Mar-2026    |   38090.95 |   -25.1
+ INSTANT SNACK MEALS     | Apr-2026    |   39982.62 |   -24.7
+ INSTANT SNACK MEALS     | May-2026    |   41858.89 |   -23.3
+ INSTANT SNACK MEALS     | Jun-2026    |   44592.18 |   -24.0
+ MAYONNAISE              | Jan-2026    |   48141.74 |   -15.3
+ MAYONNAISE              | Feb-2026    |   50277.70 |   -15.0
+ MAYONNAISE              | Mar-2026    |   52951.99 |   -13.9
+ MAYONNAISE              | Apr-2026    |   54896.37 |   -14.1
+ MAYONNAISE              | May-2026    |   58772.92 |   -13.5
+ MAYONNAISE              | Jun-2026    |   63082.44 |   -11.9
+ ORIENTAL COOKING SAUCES | Jan-2026    |   41313.82 |    -0.2
+ ORIENTAL COOKING SAUCES | Feb-2026    |   42857.21 |     1.5
+ ORIENTAL COOKING SAUCES | Mar-2026    |   44507.68 |     1.8
+ ORIENTAL COOKING SAUCES | Apr-2026    |   45699.00 |     0.6
+ ORIENTAL COOKING SAUCES | May-2026    |   48615.85 |     1.9
+ ORIENTAL COOKING SAUCES | Jun-2026    |   50833.46 |     2.1
+ SALAD DRESSINGS         | Jan-2026    |   32578.96 |    -1.3
+ SALAD DRESSINGS         | Feb-2026    |   33903.50 |    -0.3
+ SALAD DRESSINGS         | Mar-2026    |   35050.42 |    -0.9
+ SALAD DRESSINGS         | Apr-2026    |   36050.70 |    -1.1
+ SALAD DRESSINGS         | May-2026    |   37435.82 |     0.2
+ SALAD DRESSINGS         | Jun-2026    |   40023.43 |     1.0
+ SEASONINGS              | Jan-2026    |   38901.15 |    13.0
+ SEASONINGS              | Feb-2026    |   39482.45 |    13.0
+ SEASONINGS              | Mar-2026    |   41726.06 |    12.2
+ SEASONINGS              | Apr-2026    |   42333.66 |    12.6
+ SEASONINGS              | May-2026    |   44178.80 |    14.0
+ SEASONINGS              | Jun-2026    |   46257.49 |    14.2
+ SPECIALITY OILS         | Jan-2026    |   34665.16 |     7.7
+ SPECIALITY OILS         | Feb-2026    |   35010.01 |     7.8
+ SPECIALITY OILS         | Mar-2026    |   36664.90 |     7.9
+ SPECIALITY OILS         | Apr-2026    |   37939.17 |     7.8
+ SPECIALITY OILS         | May-2026    |   39178.59 |     8.7
+ SPECIALITY OILS         | Jun-2026    |   41765.39 |     9.6
+ TOMATO SAUCE            | Jan-2026    |   34225.95 |   -29.4
+ TOMATO SAUCE            | Feb-2026    |   35538.31 |   -29.4
+ TOMATO SAUCE            | Mar-2026    |   37995.11 |   -29.0
+ TOMATO SAUCE            | Apr-2026    |   39325.95 |   -28.3
+ TOMATO SAUCE            | May-2026    |   41061.63 |   -27.9
+ TOMATO SAUCE            | Jun-2026    |   44047.64 |   -27.1
+(60 rows)
+
