@@ -1,0 +1,17 @@
+-- Output of sql/04_clean_transform.sql (PostgreSQL 16)
+
+                  check_name                   | staging_value | analytics_value 
+-----------------------------------------------+---------------+-----------------
+ row count                                     |          1800 |            1800
+ current sales £                               |    2480524.12 |      2480524.12
+ last year sales £                             |    2712125.35 |      2712125.35
+ current units                                 |        955139 |          955139
+ complaints                                    |           600 |             600
+ shopper appeal rows (10 groups x 11 segments) |           110 |             110
+(6 rows)
+
+ rows_customers_gt_visits | products_tpn_code_mismatch 
+--------------------------+----------------------------
+                        5 |                          5
+(1 row)
+
