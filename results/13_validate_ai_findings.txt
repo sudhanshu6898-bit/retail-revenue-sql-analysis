@@ -1,0 +1,28 @@
+-- Output of sql/13_validate_ai_findings.sql (PostgreSQL 16)
+
+            claim            | ai_claimed | sql_value  | difference | verdict 
+-----------------------------+------------+------------+------------+---------
+ Total current revenue (£)   | 2480524.12 | 2480524.12 |       0.00 | AGREES
+ Revenue YoY change %        |       -8.5 |       -8.5 |       0.00 | AGREES
+ Weakest product group YoY % |      -36.3 |     -36.31 |      -0.01 | AGREES
+ Store channel YoY %         |      -16.3 |      -16.3 |       0.00 | AGREES
+ Online channels YoY %       |        6.0 |        6.0 |       0.00 | AGREES
+(5 rows)
+
+   dimension   | position |        ai_answer         |        sql_answer        | verdict 
+---------------+----------+--------------------------+--------------------------+---------
+ Channel       | Best     | Click & Collect          | Click & Collect          | AGREES
+ Channel       | Worst    | Store                    | Store                    | AGREES
+ Product group | Best     | SEASONINGS               | SEASONINGS               | AGREES
+ Product group | Worst    | EVERYDAY 2 LITRE TUBS    | EVERYDAY 2 LITRE TUBS    | AGREES
+ Store         | Best     | Norwich Riverside        | Norwich Riverside        | AGREES
+ Store         | Worst    | Peterborough Retail Park | Peterborough Retail Park | AGREES
+(6 rows)
+
+                    check_name                     |            finding             
+---------------------------------------------------+--------------------------------
+ In-store vs online split                          | In-store -16.3% | Online +6.0%
+ Premium vs competitor <-> revenue YoY correlation | -0.968
+ Rows with customers > visits (data issue)         | 5
+(3 rows)
+
