@@ -1,0 +1,124 @@
+-- Output of sql/03_data_quality_checks.sql (PostgreSQL 16)
+
+        table_name        | row_count 
+--------------------------+-----------
+ sales_weekly_raw         |      1800
+ shopper_profile_raw      |        11
+ variable_definitions_raw |        38
+ customer_complaints_raw  |       600
+(4 rows)
+
+ missing_week_start | missing_store_id | missing_channel | missing_product_group | missing_ly_sales | missing_cy_sales | missing_cy_units | missing_cy_customers 
+--------------------+------------------+-----------------+-----------------------+------------------+------------------+------------------+----------------------
+                  0 |                0 |               0 |                     0 |                0 |                0 |                0 |                    0
+(1 row)
+
+ week_start | store_id | channel | tpn | dup_count 
+------------+----------+---------+-----+-----------
+(0 rows)
+
+ exact_duplicate_rows 
+----------------------
+                    0
+(1 row)
+
+    column_name     | distinct_values 
+--------------------+-----------------
+ week_start         |               6
+ month              |               6
+ store_id           |              10
+ store_name         |              10
+ region             |               1
+ channel            |               3
+ product_group      |              10
+ product_group_code |              10
+ tpn                |              10
+(9 rows)
+
+     channel     | rows 
+-----------------+------
+ Click & Collect |  600
+ Online Delivery |  600
+ Store           |  600
+(3 rows)
+
+ store_id |        store_name        | rows 
+----------+--------------------------+------
+ S001     | Norwich Riverside        |  180
+ S002     | Cambridge Central        |  180
+ S003     | Bury St Edmunds          |  180
+ S004     | Ely Local                |  180
+ S005     | Ipswich Town             |  180
+ S006     | Peterborough Retail Park |  180
+ S007     | Colchester High Street   |  180
+ S008     | King's Lynn              |  180
+ S009     | Great Yarmouth           |  180
+ S010     | Lowestoft Local          |  180
+(10 rows)
+
+ store_name_untrimmed | channel_untrimmed | product_group_untrimmed | product_name_untrimmed 
+----------------------+-------------------+-------------------------+------------------------
+                    0 |                 0 |                       0 |                      0
+(1 row)
+
+ bad_dates | bad_ly_sales | bad_cy_sales | bad_cy_units | bad_cy_customers | bad_pct_change 
+-----------+--------------+--------------+--------------+------------------+----------------
+         0 |            0 |            0 |            0 |                0 |              0
+(1 row)
+
+ non_positive_cy_sales | non_positive_ly_sales | non_positive_units | distribution_out_of_range | repeat_rate_out_of_range 
+-----------------------+-----------------------+--------------------+---------------------------+--------------------------
+                     0 |                     0 |                  0 |                         0 |                        0
+(1 row)
+
+ sales_gap_mismatch | sales_pct_mismatch | units_pct_mismatch | price_index_mismatch | sales_per_store_mismatch 
+--------------------+--------------------+--------------------+----------------------+--------------------------
+                  0 |                  0 |                  0 |                    0 |                        0
+(1 row)
+
+ week_start |        store_name        |     channel     |     product_group     | visits | customers 
+------------+--------------------------+-----------------+-----------------------+--------+-----------
+ 2026-02-01 | Ipswich Town             | Store           | EVERYDAY 2 LITRE TUBS |    187 |       230
+ 2026-04-01 | Colchester High Street   | Store           | INSTANT SNACK MEALS   |    873 |       933
+ 2026-04-01 | Peterborough Retail Park | Store           | EVERYDAY 2 LITRE TUBS |    712 |       755
+ 2026-04-01 | Peterborough Retail Park | Click & Collect | EVERYDAY 2 LITRE TUBS |     69 |        74
+ 2026-06-01 | Peterborough Retail Park | Store           | EVERYDAY 2 LITRE TUBS |    221 |       261
+(5 rows)
+
+      product_group      | codes | tpns | product_names | product_group_code |      tpn      
+-------------------------+-------+------+---------------+--------------------+---------------
+ EVERYDAY 2 LITRE TUBS   |     1 |    1 |             1 | F76AC              | TPN-F76CC-009
+ FROZEN READY MEALS      |     1 |    1 |             1 | F74AA              | TPN-F74AA-001
+ HEALTHY & FREE FROM     |     1 |    1 |             1 | F76DD              | TPN-F76DD-010
+ INSTANT SNACK MEALS     |     1 |    1 |             1 | G18GD              | TPN-G18GD-004
+ MAYONNAISE              |     1 |    1 |             1 | G42DD              | TPN-G42DD-002
+ ORIENTAL COOKING SAUCES |     1 |    1 |             1 | G41LG              | TPN-G42HH-005
+ SALAD DRESSINGS         |     1 |    1 |             1 | G42DG              | TPN-G42CC-008
+ SEASONINGS              |     1 |    1 |             1 | G41DK              | TPN-G42FF-006
+ SPECIALITY OILS         |     1 |    1 |             1 | G41AH              | TPN-G42BB-007
+ TOMATO SAUCE            |     1 |    1 |             1 | G42AD              | TPN-G42AD-003
+(10 rows)
+
+      product_group      | product_group_code |      tpn      | code_inside_tpn 
+-------------------------+--------------------+---------------+-----------------
+ EVERYDAY 2 LITRE TUBS   | F76AC              | TPN-F76CC-009 | F76CC
+ ORIENTAL COOKING SAUCES | G41LG              | TPN-G42HH-005 | G42HH
+ SALAD DRESSINGS         | G42DG              | TPN-G42CC-008 | G42CC
+ SEASONINGS              | G41DK              | TPN-G42FF-006 | G42FF
+ SPECIALITY OILS         | G41AH              | TPN-G42BB-007 | G42BB
+(5 rows)
+
+      product_group      | product_group_code 
+-------------------------+--------------------
+ Category shopper appeal | 
+(1 row)
+
+ total_rows | non_ddmmyyyy_dates | bad_severity | bad_repeat_flag | distinct_ids 
+------------+--------------------+--------------+-----------------+--------------
+        600 |                  0 |            0 |               0 |          600
+(1 row)
+
+ product_group 
+---------------
+(0 rows)
+
